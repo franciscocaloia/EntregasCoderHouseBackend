@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/franciscocaloia/EntregasCoderHouseBackend/issues"
   },
-  "homepage": "https://github.com/franciscocaloia/EntregasCoderHouseBackend#readme"
+  "homepage": "https://github.com/franciscocaloia/EntregasCoderHouseBackend#readme",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
 }
