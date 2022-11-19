@@ -1,4 +1,4 @@
-const { connect } = require("./server");
+const { connect } = require("./src/server/server");
 
 const main = async () => {
   try {

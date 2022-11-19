@@ -1,17 +1,15 @@
-const Container = require("./class/container");
+const Container = require("../class/container");
 const express = require("express");
 
 const routerApi = express.Router();
 const containerPrueba = new Container("./info.txt");
 
-routerApi.get("/productos", async (req, respuesta) => {
-  respuesta.json(await containerPrueba.getAll());
+routerApi.get("/productos", async (req, res) => {
+  res.json(await containerPrueba.getAll());
 });
-routerApi.get("/productos/:id", async (req, respuesta) => {
+routerApi.get("/productos/:id", async (req, res) => {
   const foundProduct = await containerPrueba.getById(parseInt(req.params.id));
-  respuesta.json(
-    foundProduct ? foundProduct : { error: "producto no encontrado" }
-  );
+  res.render("producto.hbs", foundProduct);
 });
 routerApi.post("/productos", async (req, res) => {
   res.json(await containerPrueba.save(req.body));
