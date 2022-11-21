@@ -1,6 +1,7 @@
-<h1>Lista de productos</h1>
-{{#if products.lenght}}
+<h1 class="productList--title">Lista de productos</h1>
+{{#if products.length}}
     {{#each products}}
     {{>product product=this}}
-    {{#each}}
+    {{/each}}
 {{/if}}
+<a href="/api">Nuevo producto</a>

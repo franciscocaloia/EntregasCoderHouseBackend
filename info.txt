@@ -1,1 +1,1 @@
-[{"id":1,"name":"producto1","price":2332},{"id":2,"name":"producto2","price":2332},{"id":3,"name":"producto3","price":2332},{"id":4,"name":"producto4","price":2332},{"id":5,"name":"producto5","price":2332}]
+[{"id":1,"name":"producto1","price":2332},{"id":2,"name":"producto2","price":2332},{"id":3,"name":"producto3","price":2332},{"id":4,"name":"producto4","price":2332},{"id":5,"name":"producto5","price":2332},{"id":6,"name":"producto6","price":"11223344"},{"id":7,"name":"productox","price":"124152"}]

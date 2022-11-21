@@ -5,6 +5,7 @@ const { engine } = require("express-handlebars");
 const app = express();
 app.use(express.json());
 app.use(express.static("public"));
+app.use(express.urlencoded({extended:true}))
 
 app.engine("hbs", engine({ defaultLayout: "main", extname: ".hbs" }));
 app.set("view engine", "hbs");

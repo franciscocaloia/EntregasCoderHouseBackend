@@ -4,15 +4,20 @@ const express = require("express");
 const routerApi = express.Router();
 const containerPrueba = new Container("./info.txt");
 
+routerApi.get("/",(req,res)=>{
+  res.render("productForm",{});
+});
+
 routerApi.get("/productos", async (req, res) => {
-  res.json(await containerPrueba.getAll());
+  res.render("productList",{products: await containerPrueba.getAll()});
 });
 routerApi.get("/productos/:id", async (req, res) => {
   const foundProduct = await containerPrueba.getById(parseInt(req.params.id));
-  res.render("producto.hbs", foundProduct);
+  res.render("productDetail.hbs", foundProduct);
 });
 routerApi.post("/productos", async (req, res) => {
-  res.json(await containerPrueba.save(req.body));
+  await containerPrueba.save(req.body)
+  res.render("productForm");
 });
 routerApi.put("/productos", async (req, res) => {
   const updated = await containerPrueba.update(req.body);
