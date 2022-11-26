@@ -1,6 +1,12 @@
 *{
     box-sizing: border-box;
 }
+.container{
+    background-color: #eee;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 10px;
+}
 .productList--item{
     list-style-type: none;
     border: 1px solid lightsteelblue;
@@ -15,17 +21,7 @@
     color: mediumblue;
 }
 
-.productList--item__name{
-    
-}
 
-.productList--item__price{
-
-}
-
-.productList--item__id{
-
-}
 .productForm--form{
     margin: 0 auto;
     width: 400px;
