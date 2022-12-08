@@ -5,9 +5,12 @@ const { engine } = require("express-handlebars");
 const { Server: IOServer } = require("socket.io");
 const { Server: HTTPServer } = require("http");
 
-const Container = require("../class/container");
-const productContainer = new Container("products.txt");
-const messageContainer = new Container("messages.txt");
+const { cfg } = require("../cfg/mysql");
+const knex = require("knex")(cfg);
+
+const ContainerMySQL = require("../class/container");
+const productContainer = new ContainerMySQL(knex, "products");
+const messageContainer = new ContainerMySQL(knex, "message");
 
 const app = express();
 app.use(express.json());

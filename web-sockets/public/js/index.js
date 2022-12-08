@@ -1,15 +1,15 @@
 const getFormProduct = () => {
   return {
-    name: document.querySelector("#name").value,
-    price: document.querySelector("#price").value,
+    productName: document.querySelector("#name").value,
+    productPrice: document.querySelector("#price").value,
   };
 };
 const getFormMessage = () => {
   const date = new Date();
   return {
-    name: document.querySelector("#messageName").value,
-    content: document.querySelector("#messageContent").value,
-    date: `[${date.getFullYear()}/${
+    messageName: document.querySelector("#messageName").value,
+    messageContent: document.querySelector("#messageContent").value,
+    messageDate: `[${date.getFullYear()}/${
       date.getMonth() + 1
     }/${date.getDay()}  ${date.getHours()}:${date.getMinutes()}]`,
   };
@@ -53,7 +53,7 @@ const startIO = async () => {
     });
   });
   socket.on("messageList", (messages) => {
-    console.log("lista");
+    console.log(messages);
     document.querySelector("#messageList").innerHTML = renderMessageList({
       messages,
     });

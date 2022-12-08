@@ -1,4 +1,5 @@
 const fs = require("fs");
+
 class Container {
   constructor(path) {
     this.path = path;
@@ -69,4 +70,33 @@ class Container {
   }
 }
 
+class ContainerMySQL {
+  constructor(client, table) {
+    this.client = client;
+    this.table = table;
+  }
+  async getAll() {
+    return await this.client(this.table).select();
+  }
+
+  async save(object) {
+    await this.client(this.table).insert(object);
+  }
+
+  async update(object) {
+    await this.client(this.table).where({ id: object.id }).update(object);
+  }
+  async getById(id) {
+    return await this.client(this.table).where({ id: id }).first();
+  }
+  async deleteById(id) {
+    await this.client(this.table).where({ id: id }).del();
+  }
+
+  async deleteAll() {
+    await this.client(this.table).del();
+  }
+}
+
 module.exports = Container;
+module.exports = ContainerMySQL;
