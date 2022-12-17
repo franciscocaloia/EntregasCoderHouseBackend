@@ -1,0 +1,7 @@
+{{#if products}}
+    {{#each products}}
+    {{>product product=this}}
+    {{/each}}
+{{else}}
+    <h1 class="productList--title">No hay productos para mostrar</h1>
+{{/if}}

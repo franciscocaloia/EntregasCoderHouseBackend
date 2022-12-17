@@ -1,0 +1,37 @@
+*{
+    box-sizing: border-box;
+}
+.container{
+    background-color: #eee;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 10px;
+}
+.productList--item{
+    list-style-type: none;
+    border: 1px solid lightsteelblue;
+    width: 300px;
+    margin: 10px;
+    padding: 10px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+.productList--title{
+    color: mediumblue;
+}
+
+
+.productForm--form{
+    margin: 0 auto;
+    width: 400px;
+}
+.productForm--form > input ,.productForm--inputContainer>input{
+    width: 100%;
+}
+.productForm--inputContainer{
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
