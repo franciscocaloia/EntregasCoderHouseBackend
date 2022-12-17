@@ -37,3 +37,4 @@ db.products.insertOne({{_id:11,name:"tableta digitalizadora",description:"tablet
     db.products.deleteMany({"price":{$lte:1000}})
 
 ## 6
+db.createUser({user:"pepe",pwd:"asd456",roles:{[{role:"read",db:"ecommerce"}]}})
