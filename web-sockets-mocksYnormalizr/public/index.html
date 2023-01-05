@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Producto</title>
+    <link rel="stylesheet" href="/css/product.css">
+    <link rel="stylesheet" href="/css/normalize.css">       
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
+</head>
+<body>
+    <h1>Nuevo Producto</h1>
+    <div class="container">
+        <form class="form">
+            <div class="inputContainer">
+                <label for="productName">Nombre:</label>
+                <input type="text" id="productName" name="productName">
+            </div>
+            <div class="inputContainer">
+                <label for="productDescription">Descripcion:</label>
+                <input type="text" id="productDescription" name="productDescription">
+            </div>
+            <div class="inputContainer">
+                <label for="productPrice">Precio:</label>
+                <input type="number" id="productPrice" name="productPrice">
+            </div>
+            <div class="inputContainer">
+                <label for="productCode">Codigo:</label>
+                <input type="number" id="productCode" name="productCode">
+            </div>
+            <div class="inputContainer">
+                <label for="productStock">Stock:</label>
+                <input type="number" id="productStock" name="productStock">
+            </div>
+            <div class="inputContainer">
+                <label for="productStock">Imagen:</label>
+                <input type="number" id="productStock" name="productStock">
+            </div>
+            <button id="newProductButton">Cargar producto</button>
+        </form>
+        <div id="productList"></div>    
+    </div>
+    <div class="container">
+        <form class="form">
+            <div class="inputContainer">
+                <label for="messageEmail">Email:</label>
+                <input type="email" id="messageEmail" name="messageEmail">
+            </div>
+            <div class="inputContainer">
+                <label for="messageName">Nombre:</label>
+                <input type="text" id="messageName" name="messageName">
+            </div>
+            <div class="inputContainer">
+                <label for="messageLastName">Apellido:</label>
+                <input type="text" id="messageLastName" name="messageLastName">
+            </div>
+            <div class="inputContainer">
+                <label for="messageAlias">Alias:</label>
+                <input type="text" id="messageAlias" name="messageAlias">
+            </div>
+            <div class="inputContainer">
+                <label for="messageAge">Edad:</label>
+                <input type="number" id="messageAge" name="messageAge">
+            </div>
+            <div class="inputContainer">
+                <label for="messageText">Mensaje:</label>
+                <input type="text" id="messageText" name="messageText">
+            </div>
+            <button id="newMessageButton">Enviar mensaje</button>
+        </form>
+        <div id="messageList"></div>    
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/normalizr@3.6.1/dist/normalizr.browser.min.js"></script>
+    <script src="js/index.js"></script>
+</body>
+</html>

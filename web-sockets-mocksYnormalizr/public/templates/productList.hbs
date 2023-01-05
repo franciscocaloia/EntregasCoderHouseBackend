@@ -1,0 +1,15 @@
+<li class="productList--item">
+    <div><b>Name:</b></div>
+    <div><b>Description:</b></div>
+    <div><b>Img:</b></div>
+    <div><b>Price:</b></div>
+    <div><b>Code:</b></div>
+    <div><b>Stock:</b></div>
+</li>
+{{#if products}}
+    {{#each products}}
+    {{>product product=this}}
+    {{/each}}
+{{else}}
+    <h1 class="productList--title">No hay productos para mostrar</h1>
+{{/if}}
