@@ -8,12 +8,14 @@ import { Server as IOServer } from "socket.io";
 import { Server as HTTPServer } from "http";
 import { controllerProducts } from "../controller/controllerProduct.js";
 import { controllerMessages } from "../controller/controllerMessages.js";
+// const path="D:\\ESCRITORIO\\CoderHouse\\EntregasGithubBackend\\web-sockets-mocksYnormalizr\\public"
+const path = "C:\\Users\\zapat\\Escritorio\\Fran\\EntregasCoderHouseBackend\\web-sockets-mocksYnormalizr\\public"
 const app = express();
 app.use(express.json());
 app.use(
   session({
     store: MongoStore.create({
-      mongoUrl: "mongodb://localhost:27017/ecommerce",
+      mongoUrl: "mongodb+srv://franciscocaloia:clemente12@coderhouse.ubggka6.mongodb.net/?retryWrites=true&w=majority",
     }),
     secret: "secret",
     resave: false,
@@ -31,17 +33,17 @@ app.set("view engine", "hbs");
 
 app.get("/signin", (req, res) => {
   res.sendFile("signin.html", {
-    root: "D:\\ESCRITORIO\\CoderHouse\\EntregasGithubBackend\\web-sockets-mocksYnormalizr\\public",
+    root: path,
   });
 });
 app.get("/login", (req, res) => {
   if (!req.session.name) {
     res.sendFile("login.html", {
-      root: "D:\\ESCRITORIO\\CoderHouse\\EntregasGithubBackend\\web-sockets-mocksYnormalizr\\public",
+      root: path,
     });
   } else {
     res.sendFile("index.html", {
-      root: "D:\\ESCRITORIO\\CoderHouse\\EntregasGithubBackend\\web-sockets-mocksYnormalizr\\public",
+      root: path,
     });
   }
 });

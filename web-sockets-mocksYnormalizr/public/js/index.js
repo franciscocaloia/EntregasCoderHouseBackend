@@ -13,7 +13,7 @@ const messageSchema = new normalizr.schema.Entity(
 const messageArray = new normalizr.schema.Array(messageSchema);
 const getFormProduct = () => {
   return {
-    description: document.querySelector("#productDescription"),
+    description: document.querySelector("#productDescription").value,
     name: document.querySelector("#productName").value,
     price: document.querySelector("#productPrice").value,
     code: document.querySelector("#productCode").value,
