@@ -87,9 +87,14 @@ const startIO = async () => {
     });
   });
 
-  document.querySelector("#logout-button").addEventListener("click", () => {
-    fetch("/logout", { method: "POST" });
-  });
+  document
+    .querySelector("#logout-button")
+    .addEventListener("click", async () => {
+      const res = await fetch("/logout", { method: "POST" });
+      const data = await res.json();
+      if (data.error) return console.log(data.error);
+      window.open("/login");
+    });
 };
 
 startIO();

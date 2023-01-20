@@ -4,14 +4,19 @@ const getFormProduct = () => {
   };
 };
 
-document.querySelector("#userForm").addEventListener("submit", (e) => {
+document.querySelector("#userForm").addEventListener("submit", async (e) => {
   e.preventDefault();
-  console.log(getFormProduct());
-  fetch("/login", {
+  const res = await fetch("/login", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
     },
     body: JSON.stringify(getFormProduct()),
   });
+  const data = await res.json();
+  if (data.error) {
+    return console.log(data.error);
+  } else {
+    window.open("/");
+  }
 });

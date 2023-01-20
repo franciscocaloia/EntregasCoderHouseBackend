@@ -57,16 +57,18 @@ app.get("/login", (req, res) => {
 });
 app.post("/login", (req, res) => {
   const name = req.body.name;
-  console.log(name);
   req.session.name = name;
-  res.redirect("/");
+  if (name.trim() === "") {
+    return res.json({ error: "nombre invalido" });
+  }
+  res.json({ name });
 });
 app.post("/logout", (req, res) => {
-  req.session.destroy((err) => {
-    if (err) {
-      return res.json({ status: "LOGOUT_ERROR", body: err });
+  req.session.destroy((error) => {
+    if (error) {
+      return res.json({ error });
     }
-    res.redirect("/mocks");
+    res.json({ success: "logout success" });
   });
 });
 app.get("/api/products-test", (req, res) => {
