@@ -86,6 +86,10 @@ const startIO = async () => {
       messages,
     });
   });
+
+  document.querySelector("#logout-button").addEventListener("click", () => {
+    fetch("/logout", { method: "POST" });
+  });
 };
 
 startIO();

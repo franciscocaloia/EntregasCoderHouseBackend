@@ -8,21 +8,25 @@ import { Server as IOServer } from "socket.io";
 import { Server as HTTPServer } from "http";
 import { controllerProducts } from "../controller/controllerProduct.js";
 import { controllerMessages } from "../controller/controllerMessages.js";
-// const path="D:\\ESCRITORIO\\CoderHouse\\EntregasGithubBackend\\web-sockets-mocksYnormalizr\\public"
-const path = "C:\\Users\\zapat\\Escritorio\\Fran\\EntregasCoderHouseBackend\\web-sockets-mocksYnormalizr\\public"
+const path =
+  "D:\\ESCRITORIO\\CoderHouse\\EntregasGithubBackend\\web-sockets-mocksYnormalizr\\public";
+// const path =
+//   "C:\\Users\\zapat\\Escritorio\\Fran\\EntregasCoderHouseBackend\\web-sockets-mocksYnormalizr\\public";
 const app = express();
 app.use(express.json());
 app.use(
   session({
     store: MongoStore.create({
-      mongoUrl: "mongodb+srv://franciscocaloia:clemente12@coderhouse.ubggka6.mongodb.net/?retryWrites=true&w=majority",
+      mongoUrl:
+        "mongodb+srv://franciscocaloia:clemente12@coderhouse.ubggka6.mongodb.net/?retryWrites=true&w=majority",
     }),
     secret: "secret",
-    resave: false,
     saveUninitialized: false,
+    resave: true,
+    rolling: true,
     cookie: {
       signed: true,
-      maxAge: 3600000,
+      expires: 60000,
     },
   })
 );
@@ -31,27 +35,39 @@ app.use(express.urlencoded({ extended: true }));
 app.engine("hbs", engine({ defaultLayout: "main", extname: ".hbs" }));
 app.set("view engine", "hbs");
 
+app.get("/", (req, res) => {
+  if (req.session.name) {
+    req.session.resetMaxAge();
+    res.render("index", {
+      name: req.session.name,
+    });
+  } else {
+    res.redirect("/login");
+  }
+});
 app.get("/signin", (req, res) => {
   res.sendFile("signin.html", {
     root: path,
   });
 });
 app.get("/login", (req, res) => {
-  if (!req.session.name) {
-    res.sendFile("login.html", {
-      root: path,
-    });
-  } else {
-    res.sendFile("index.html", {
-      root: path,
-    });
-  }
+  res.sendFile("login.html", {
+    root: path,
+  });
 });
 app.post("/login", (req, res) => {
   const name = req.body.name;
   console.log(name);
   req.session.name = name;
-  res.send("login success!");
+  res.redirect("/");
+});
+app.post("/logout", (req, res) => {
+  req.session.destroy((err) => {
+    if (err) {
+      return res.json({ status: "LOGOUT_ERROR", body: err });
+    }
+    res.redirect("/mocks");
+  });
 });
 app.get("/api/products-test", (req, res) => {
   const products = [];
