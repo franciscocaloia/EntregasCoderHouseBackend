@@ -1,0 +1,66 @@
+    <div class="container">
+        <h1>Bienvenido {{username}}</h1>
+        <button id="logout-button">Logout</button>
+    </div>
+    <div class="container">
+        <form class="form">
+            <div class="inputContainer">
+                <label for="productName">Nombre:</label>
+                <input type="text" id="productName" name="productName">
+            </div>
+            <div class="inputContainer">
+                <label for="productDescription">Descripcion:</label>
+                <input type="text" id="productDescription" name="productDescription">
+            </div>
+            <div class="inputContainer">
+                <label for="productPrice">Precio:</label>
+                <input type="number" id="productPrice" name="productPrice">
+            </div>
+            <div class="inputContainer">
+                <label for="productCode">Codigo:</label>
+                <input type="number" id="productCode" name="productCode">
+            </div>
+            <div class="inputContainer">
+                <label for="productStock">Stock:</label>
+                <input type="number" id="productStock" name="productStock">
+            </div>
+            <div class="inputContainer">
+                <label for="productImg">Imagen:</label>
+                <input type="text" id="productImg" name="productImg">
+            </div>
+            <button id="newProductButton">Cargar producto</button>
+        </form>
+        <div id="productList"></div>    
+    </div>
+    <div class="container">
+        <form class="form">
+            <div class="inputContainer">
+                <label for="messageEmail">Email:</label>
+                <input type="email" id="messageEmail" name="messageEmail">
+            </div>
+            <div class="inputContainer">
+                <label for="messageName">Nombre:</label>
+                <input type="text" id="messageName" name="messageName">
+            </div>
+            <div class="inputContainer">
+                <label for="messageLastName">Apellido:</label>
+                <input type="text" id="messageLastName" name="messageLastName">
+            </div>
+            <div class="inputContainer">
+                <label for="messageAlias">Alias:</label>
+                <input type="text" id="messageAlias" name="messageAlias">
+            </div>
+            <div class="inputContainer">
+                <label for="messageAge">Edad:</label>
+                <input type="number" id="messageAge" name="messageAge">
+            </div>
+            <div class="inputContainer">
+                <label for="messageText">Mensaje:</label>
+                <input type="text" id="messageText" name="messageText">
+            </div>
+            <button id="newMessageButton">Enviar mensaje</button>
+        </form>
+        <div id="messageList"></div>    
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/normalizr@3.6.1/dist/normalizr.browser.min.js"></script>
+    <script src="js/index.js"></script>
