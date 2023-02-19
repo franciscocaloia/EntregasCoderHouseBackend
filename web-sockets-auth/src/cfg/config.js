@@ -1,4 +1,5 @@
 import dotenv from "dotenv";
+import os from "os";
 dotenv.config();
 export const MONGO_URL = process.env.MONGO_URL;
 export const SESSION_SECRET = process.env.SESSION_SECRET;
@@ -8,3 +9,4 @@ export const args = yargs.default({
   port: 8080,
   mode: "FORK",
 }).argv;
+export const cpus = os.cpus().length;

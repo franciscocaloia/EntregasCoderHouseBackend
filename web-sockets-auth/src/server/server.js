@@ -10,7 +10,7 @@ import { controllerProducts } from "../controller/controllerProduct.js";
 import { controllerMessages } from "../controller/controllerMessages.js";
 import { routerAuth } from "../router/routerAuth.js";
 import passport from "passport";
-import { args, MONGO_URL, SESSION_SECRET } from "../cfg/config.js";
+import { args, cpus, MONGO_URL, SESSION_SECRET } from "../cfg/config.js";
 import { routerApi } from "../router/routerApi.js";
 
 const app = express();
@@ -70,6 +70,7 @@ app.get("/info", (req, res) => {
     execPath: process.execPath,
     pid: process.pid,
     cdw: process.cwd(),
+    cpus: cpus,
   });
 });
 
