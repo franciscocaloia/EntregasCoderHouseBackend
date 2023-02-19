@@ -1,4 +1,3 @@
 import { MongoClient } from "mongodb";
-export const client = await MongoClient.connect(
-  "mongodb+srv://franciscocaloia:clemente12@coderhouse.ubggka6.mongodb.net/?retryWrites=true&w=majority"
-);
+import { MONGO_URL } from "./config.js";
+export const client = await MongoClient.connect(MONGO_URL);

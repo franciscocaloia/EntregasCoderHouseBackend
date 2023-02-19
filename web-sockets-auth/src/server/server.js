@@ -10,6 +10,8 @@ import { controllerProducts } from "../controller/controllerProduct.js";
 import { controllerMessages } from "../controller/controllerMessages.js";
 import { routerAuth } from "../router/routerAuth.js";
 import passport from "passport";
+import { args, MONGO_URL, SESSION_SECRET } from "../cfg/config.js";
+import { routerApi } from "../router/routerApi.js";
 
 const app = express();
 app.use(express.json());
@@ -20,10 +22,9 @@ app.set("view engine", "hbs");
 app.use(
   session({
     store: MongoStore.create({
-      mongoUrl:
-        "mongodb+srv://franciscocaloia:clemente12@coderhouse.ubggka6.mongodb.net/?retryWrites=true&w=majority",
+      mongoUrl: MONGO_URL,
     }),
-    secret: "secret",
+    secret: SESSION_SECRET,
     saveUninitialized: false,
     resave: true,
     rolling: true,
@@ -44,8 +45,11 @@ passport.deserializeUser((user, done) => {
 });
 
 app.use(routerAuth);
+
+app.use("/api", routerApi);
+
 app.use((err, req, res, next) => {
-  res.json({ error: err });
+  res.redirect().json({ error: err });
 });
 
 app.get("/", (req, res) => {
@@ -57,6 +61,18 @@ app.get("/", (req, res) => {
     res.redirect("/login");
   }
 });
+app.get("/info", (req, res) => {
+  res.render("info", {
+    args: process.argv,
+    os: process.platform,
+    version: process.version,
+    rss: process.memoryUsage().rss,
+    execPath: process.execPath,
+    pid: process.pid,
+    cdw: process.cwd(),
+  });
+});
+
 app.get("/error", (req, res) => {
   res.render("error", { error: err });
 });
@@ -77,29 +93,39 @@ app.get("/api/products-test", (req, res) => {
   res.json(products);
 });
 
-const httpServer = new HTTPServer(app);
-const io = new IOServer(httpServer);
+export class Server {
+  #server;
+  #io;
+  constructor() {
+    this.#server = new HTTPServer(app);
+    this.#io = new IOServer(this.#server);
+    this.#io.on("connection", async (socket) => {
+      socket.emit("productList", await controllerProducts.getAllProducts());
+      socket.emit("messageList", await controllerMessages.getAllMessages());
 
-io.on("connection", async (socket) => {
-  socket.emit("productList", await controllerProducts.getAllProducts());
-  socket.emit("messageList", await controllerMessages.getAllMessages());
+      socket.on("newProduct", async (product) => {
+        await controllerProducts.getAllProducts(product);
+        await controllerProducts.postProduct(product);
+        this.#io.sockets.emit(
+          "productList",
+          await controllerProducts.getAllProducts(product)
+        );
+      });
 
-  socket.on("newProduct", async (product) => {
-    await controllerProducts.getAllProducts(product);
-    await controllerProducts.postProduct(product);
-    io.sockets.emit(
-      "productList",
-      await controllerProducts.getAllProducts(product)
-    );
-  });
-
-  socket.on("newMessage", async (message) => {
-    await controllerMessages.postMessage(message);
-    io.sockets.emit("messageList", await controllerMessages.getAllMessages());
-  });
-});
-export const connect = (port) => {
-  return new Promise((resolve) => {
-    const server = httpServer.listen(port, () => resolve(server));
-  });
-};
+      socket.on("newMessage", async (message) => {
+        await controllerMessages.postMessage(message);
+        this.#io.sockets.emit(
+          "messageList",
+          await controllerMessages.getAllMessages()
+        );
+      });
+    });
+  }
+  connect(port) {
+    return new Promise((resolve) => {
+      const server = this.#server.listen(port, () =>
+        resolve(server.address().port)
+      );
+    });
+  }
+}
