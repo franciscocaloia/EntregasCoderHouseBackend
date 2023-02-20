@@ -9,6 +9,7 @@ const main = async () => {
       const port = await server.connect(args.port);
       console.log("localhost:" + port);
     } else if (args.mode === "CLUSTER") {
+      cluster.schedulingPolicy = cluster.SCHED_RR;
       if (cluster.isPrimary) {
         for (let i = 0; i < cpus; i++) {
           cluster.fork();
