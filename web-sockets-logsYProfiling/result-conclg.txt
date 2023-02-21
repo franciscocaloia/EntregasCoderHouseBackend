@@ -1,0 +1,166 @@
+Statistical profiling result from isolate-conclg.log, (761 ticks, 0 unaccounted, 0 excluded).
+
+ [Shared libraries]:
+   ticks  total  nonlib   name
+    629   82.7%          C:\Windows\SYSTEM32\ntdll.dll
+    130   17.1%          C:\Program Files\nodejs\node.exe
+
+ [JavaScript]:
+   ticks  total  nonlib   name
+      1    0.1%   50.0%  Function: ^opcode D:\ESCRITORIO\CoderHouse\EntregasGithubBackend\web-sockets-logsYProfiling\node_modules\handlebars\dist\cjs\handlebars\compiler\compiler.js:347:26
+      1    0.1%   50.0%  Function: ^isInline D:\ESCRITORIO\CoderHouse\EntregasGithubBackend\web-sockets-logsYProfiling\node_modules\handlebars\dist\cjs\handlebars\compiler\javascript-compiler.js:956:30
+
+ [C++]:
+   ticks  total  nonlib   name
+
+ [Summary]:
+   ticks  total  nonlib   name
+      2    0.3%  100.0%  JavaScript
+      0    0.0%    0.0%  C++
+      4    0.5%  200.0%  GC
+    759   99.7%          Shared libraries
+
+ [C++ entry points]:
+   ticks    cpp   total   name
+
+ [Bottom up (heavy) profile]:
+  Note: percentage shows a share of a particular caller in the total
+  amount of its parent calls.
+  Callers occupying less than 1.0% are not shown.
+
+   ticks parent  name
+    629   82.7%  C:\Windows\SYSTEM32\ntdll.dll
+      8    1.3%    C:\Program Files\nodejs\node.exe
+      1   12.5%      LazyCompile: ~toRealPath node:internal/modules/cjs/loader:476:20
+      1  100.0%        LazyCompile: ~Module._findPath node:internal/modules/cjs/loader:582:28
+      1  100.0%          LazyCompile: ~resolveMainPath node:internal/modules/run_main:15:25
+      1  100.0%            LazyCompile: ~executeUserEntryPoint node:internal/modules/run_main:74:31
+      1   12.5%      LazyCompile: ~toBin D:\ESCRITORIO\CoderHouse\EntregasGithubBackend\web-sockets-logsYProfiling\node_modules\mongodb\lib\cmap\commands.js:345:10
+      1  100.0%        Function: ^writeCommand D:\ESCRITORIO\CoderHouse\EntregasGithubBackend\web-sockets-logsYProfiling\node_modules\mongodb\lib\cmap\message_stream.js:40:17
+      1  100.0%          Function: ^write D:\ESCRITORIO\CoderHouse\EntregasGithubBackend\web-sockets-logsYProfiling\node_modules\mongodb\lib\cmap\connection.js:414:15
+      1  100.0%            Function: ^command D:\ESCRITORIO\CoderHouse\EntregasGithubBackend\web-sockets-logsYProfiling\node_modules\mongodb\lib\cmap\connection.js:261:12
+      1   12.5%      LazyCompile: ~onStreamEnd D:\ESCRITORIO\CoderHouse\EntregasGithubBackend\web-sockets-logsYProfiling\node_modules\compression\index.js:211:45
+      1  100.0%        Function: ^emit node:events:460:44
+      1  100.0%          LazyCompile: ~endReadableNT node:internal/streams/readable:1352:23
+      1  100.0%            Function: ^processTicksAndRejections node:internal/process/task_queues:67:35
+      1   12.5%      LazyCompile: ~de file:///D:/ESCRITORIO/CoderHouse/EntregasGithubBackend/web-sockets-logsYProfiling/node_modules/@faker-js/faker/dist/esm/chunk-G6GIS7LZ.mjs:12:15055
+      1  100.0%        Script: ~<anonymous> file:///D:/ESCRITORIO/CoderHouse/EntregasGithubBackend/web-sockets-logsYProfiling/node_modules/@faker-js/faker/dist/esm/index.mjs:1:1
+      1  100.0%          C:\Program Files\nodejs\node.exe
+      1  100.0%            C:\Program Files\nodejs\node.exe
+      1   12.5%      LazyCompile: ~createWritableStdioStream node:internal/bootstrap/switches/is_main_thread:45:35
+      1  100.0%        LazyCompile: ~getStderr node:internal/bootstrap/switches/is_main_thread:168:19
+      1  100.0%          Function: ~<anonymous> D:\ESCRITORIO\CoderHouse\EntregasGithubBackend\web-sockets-logsYProfiling\node_modules\debug\src\node.js:1:1
+      1  100.0%            LazyCompile: ~Module._compile node:internal/modules/cjs/loader:1208:37
+      1   12.5%      LazyCompile: ~Socket.resume node:net:735:35
+      1  100.0%        Function: ^Readable.on node:internal/streams/readable:886:33
+      1  100.0%          LazyCompile: ~Readable.pipe node:internal/streams/readable:666:35
+      1  100.0%            LazyCompile: ~Connection D:\ESCRITORIO\CoderHouse\EntregasGithubBackend\web-sockets-logsYProfiling\node_modules\mongodb\lib\cmap\connection.js:38:16
+      1   12.5%      Function: ~<anonymous> D:\ESCRITORIO\CoderHouse\EntregasGithubBackend\web-sockets-logsYProfiling\node_modules\pino\pino.js:1:1
+      1  100.0%        Function: ^Module._compile node:internal/modules/cjs/loader:1208:37
+      1  100.0%          Function: ^Module._extensions..js node:internal/modules/cjs/loader:1263:37
+      1  100.0%            Function: ^Module.load node:internal/modules/cjs/loader:1105:33
+      1   12.5%      Function: ^emit node:events:460:44
+      1  100.0%        LazyCompile: ~connect D:\ESCRITORIO\CoderHouse\EntregasGithubBackend\web-sockets-logsYProfiling\node_modules\mongodb\lib\sdam\topology.js:154:12
+      1  100.0%          LazyCompile: ~<anonymous> D:\ESCRITORIO\CoderHouse\EntregasGithubBackend\web-sockets-logsYProfiling\node_modules\mongodb\lib\mongo_client.js:138:49
+      1  100.0%            LazyCompile: ~<anonymous> node:internal/util:361:24
+
+    130   17.1%  C:\Program Files\nodejs\node.exe
+    111   85.4%    C:\Program Files\nodejs\node.exe
+     23   20.7%      Function: ^moduleStrategy node:internal/modules/esm/translators:114:56
+     23  100.0%        Function: ^moduleProvider node:internal/modules/esm/loader:452:28
+     23  100.0%          C:\Program Files\nodejs\node.exe
+     15   13.5%      Function: ^internalCompileFunction node:internal/vm:31:33
+     15  100.0%        Function: ^wrapSafe node:internal/modules/cjs/loader:1152:18
+     15  100.0%          Function: ^Module._compile node:internal/modules/cjs/loader:1208:37
+     14   93.3%            Function: ^Module._extensions..js node:internal/modules/cjs/loader:1263:37
+      1    6.7%            LazyCompile: ~Module._extensions..js node:internal/modules/cjs/loader:1263:37
+      7    6.3%      Function: ^stat node:internal/modules/cjs/loader:180:14
+      4   57.1%        Function: ^tryFile node:internal/modules/cjs/loader:467:17
+      2   50.0%          Function: ^tryPackage node:internal/modules/cjs/loader:421:20
+      2  100.0%            Function: ^Module._findPath node:internal/modules/cjs/loader:582:28
+      2   50.0%          Function: ^tryExtensions node:internal/modules/cjs/loader:483:23
+      2  100.0%            Function: ^Module._findPath node:internal/modules/cjs/loader:582:28
+      3   42.9%        Function: ^Module._findPath node:internal/modules/cjs/loader:582:28
+      2   66.7%          Function: ^Module._resolveFilename node:internal/modules/cjs/loader:984:35
+      2  100.0%            Function: ^Module._load node:internal/modules/cjs/loader:886:24
+      1   33.3%          LazyCompile: ~Module._resolveFilename node:internal/modules/cjs/loader:984:35
+      1  100.0%            Function: ^Module._load node:internal/modules/cjs/loader:886:24
+      6    5.4%      Function: ^compileForInternalLoader node:internal/bootstrap/loaders:319:27
+      4   66.7%        Function: ^requireBuiltin node:internal/bootstrap/loaders:356:24
+      1   25.0%          Function: ~<anonymous> node:worker_threads:1:1
+      1  100.0%            Function: ^compileForInternalLoader node:internal/bootstrap/loaders:319:27
+      1   25.0%          Function: ~<anonymous> node:child_process:1:1
+      1  100.0%            Function: ^compileForInternalLoader node:internal/bootstrap/loaders:319:27
+      1   25.0%          Function: ~<anonymous> node:assert:1:1
+      1  100.0%            Function: ^compileForInternalLoader node:internal/bootstrap/loaders:319:27
+      1   25.0%          Function: ~<anonymous> node:_http_client:1:1
+      1  100.0%            Function: ^compileForInternalLoader node:internal/bootstrap/loaders:319:27
+      2   33.3%        Function: ^compileForPublicLoader node:internal/bootstrap/loaders:264:25
+      2  100.0%          Function: ^loadBuiltinModule node:internal/modules/cjs/helpers:51:27
+      2  100.0%            Function: ^Module._load node:internal/modules/cjs/loader:886:24
+      4    3.6%      Function: ^realpathSync node:fs:2474:22
+      3   75.0%        Function: ^toRealPath node:internal/modules/cjs/loader:476:20
+      3  100.0%          Function: ^tryFile node:internal/modules/cjs/loader:467:17
+      2   66.7%            Function: ^tryExtensions node:internal/modules/cjs/loader:483:23
+      1   33.3%            LazyCompile: ~finalizeEsmResolution node:internal/modules/cjs/loader:1081:31
+      1   25.0%        LazyCompile: ~finalizeResolution node:internal/modules/esm/resolve:290:28
+      1  100.0%          LazyCompile: ~moduleResolve node:internal/modules/esm/resolve:923:23
+      1  100.0%            LazyCompile: ~defaultResolve node:internal/modules/esm/resolve:1063:30
+      3    2.7%      LazyCompile: ~handleWriteReq node:internal/stream_base_commons:45:24
+      2   66.7%        Function: ^writeGeneric node:internal/stream_base_commons:147:22
+      2  100.0%          Function: ^Socket._writeGeneric node:net:899:42
+      2  100.0%            Function: ^Socket._write node:net:941:35
+      1   33.3%        LazyCompile: ~writeGeneric node:internal/stream_base_commons:147:22
+      1  100.0%          LazyCompile: ~Socket._writeGeneric node:net:899:42
+      1  100.0%            LazyCompile: ~Socket._write node:net:941:35
+      3    2.7%      Function: ^statSync node:fs:1588:18
+      3  100.0%        Function: ^tryStatSync node:internal/modules/esm/resolve:176:3
+      2   66.7%          Function: ^finalizeResolution node:internal/modules/esm/resolve:290:28
+      2  100.0%            Function: ^moduleResolve node:internal/modules/esm/resolve:923:23
+      1   33.3%          Function: ^packageResolve node:internal/modules/esm/resolve:833:24
+      1  100.0%            Function: ^moduleResolve node:internal/modules/esm/resolve:923:23
+      2    1.8%      LazyCompile: ~prepareExecution node:internal/process/pre_execution:51:26
+      2  100.0%        LazyCompile: ~prepareMainThreadExecution node:internal/process/pre_execution:35:36
+      2  100.0%          Function: ~<anonymous> node:internal/main/run_main_module:1:1
+      2    1.8%      LazyCompile: ~configSecureContext node:internal/tls/secure-context:124:29
+      2  100.0%        LazyCompile: ~createSecureContext node:_tls_common:99:29
+      2  100.0%          LazyCompile: ~connect node:_tls_wrap:1607:35
+      2  100.0%            LazyCompile: ~makeConnection D:\ESCRITORIO\CoderHouse\EntregasGithubBackend\web-sockets-logsYProfiling\node_modules\mongodb\lib\cmap\connect.js:256:24
+      2    1.8%      Function: ^tryStatSync node:fs:419:21
+      2  100.0%        Function: ^readFileSync node:fs:465:22
+      1   50.0%          LazyCompile: ~config D:\ESCRITORIO\CoderHouse\EntregasGithubBackend\web-sockets-logsYProfiling\node_modules\dotenv\lib\main.js:58:17
+      1  100.0%            Script: ~<anonymous> file:///D:/ESCRITORIO/CoderHouse/EntregasGithubBackend/web-sockets-logsYProfiling/src/cfg/config.js:1:1
+      1   50.0%          Function: ^Module._extensions..js node:internal/modules/cjs/loader:1263:37
+      1  100.0%            Function: ^Module.load node:internal/modules/cjs/loader:1105:33
+      2    1.8%      Function: ^requireBuiltin node:internal/bootstrap/loaders:356:24
+      1   50.0%        Function: ~<anonymous> node:internal/process/esm_loader:1:1
+      1  100.0%          Function: ^requireBuiltin node:internal/bootstrap/loaders:356:24
+      1  100.0%            Function: ~<anonymous> node:internal/modules/cjs/loader:1:1
+      1   50.0%        Function: ~<anonymous> node:internal/modules/esm/fetch_module:1:1
+      1  100.0%          Function: ^requireBuiltin node:internal/bootstrap/loaders:356:24
+      1  100.0%            Function: ~<anonymous> node:internal/modules/esm/get_format:1:1
+      2    1.8%      Function: ^readSync node:fs:705:18
+      2  100.0%        Function: ^tryReadSync node:fs:444:21
+      2  100.0%          Function: ^readFileSync node:fs:465:22
+      1   50.0%            LazyCompile: ~Module._extensions..json node:internal/modules/cjs/loader:1313:39
+      1   50.0%            Function: ^Module._extensions..js node:internal/modules/cjs/loader:1263:37
+      2    1.8%      Function: ^readPackage node:internal/modules/cjs/loader:362:21
+      2  100.0%        Function: ^resolveExports node:internal/modules/cjs/loader:555:24
+      2  100.0%          Function: ^Module._findPath node:internal/modules/cjs/loader:582:28
+      2  100.0%            Function: ^Module._resolveFilename node:internal/modules/cjs/loader:984:35
+      2    1.8%      Function: ^read node:internal/modules/package_json_reader:16:14
+      2  100.0%        Function: ^readPackage node:internal/modules/cjs/loader:362:21
+      2  100.0%          Function: ^resolveExports node:internal/modules/cjs/loader:555:24
+      2  100.0%            Function: ^Module._findPath node:internal/modules/cjs/loader:582:28
+      2    1.8%      Function: ^openSync node:fs:591:18
+      2  100.0%        Function: ^readFileSync node:fs:465:22
+      2  100.0%          Function: ^Module._extensions..js node:internal/modules/cjs/loader:1263:37
+      2  100.0%            Function: ^Module.load node:internal/modules/cjs/loader:1105:33
+      2    1.8%      C:\Program Files\nodejs\node.exe
+      1   50.0%        LazyCompile: ~next D:\ESCRITORIO\CoderHouse\EntregasGithubBackend\web-sockets-logsYProfiling\node_modules\handlebars\dist\cjs\handlebars\compiler\parser.js:478:32
+      1  100.0%          LazyCompile: ~lex D:\ESCRITORIO\CoderHouse\EntregasGithubBackend\web-sockets-logsYProfiling\node_modules\handlebars\dist\cjs\handlebars\compiler\parser.js:525:30
+      1  100.0%            LazyCompile: ~lex D:\ESCRITORIO\CoderHouse\EntregasGithubBackend\web-sockets-logsYProfiling\node_modules\handlebars\dist\cjs\handlebars\compiler\parser.js:295:25
+      1   50.0%        LazyCompile: *parse D:\ESCRITORIO\CoderHouse\EntregasGithubBackend\web-sockets-logsYProfiling\node_modules\handlebars\dist\cjs\handlebars\compiler\parser.js:269:30
+      1  100.0%          Function: ^parseWithoutProcessing D:\ESCRITORIO\CoderHouse\EntregasGithubBackend\web-sockets-logsYProfiling\node_modules\handlebars\dist\cjs\handlebars\compiler\base.js:33:32
+      1  100.0%            Function: ^parse D:\ESCRITORIO\CoderHouse\EntregasGithubBackend\web-sockets-logsYProfiling\node_modules\handlebars\dist\cjs\handlebars\compiler\base.js:51:15
+

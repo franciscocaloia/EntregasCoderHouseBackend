@@ -1,0 +1,7 @@
+{{#if messages}}
+    {{#each messages}}
+    {{>message message=this}}
+    {{/each}}
+{{else}}
+    <h1 class="message--title">No hay mensajes para mostrar</h1>
+{{/if}}

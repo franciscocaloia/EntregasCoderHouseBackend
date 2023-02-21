@@ -1,0 +1,19 @@
+<ul>
+    <li>Argumentos de entrada:</li>
+    <ul>
+        {{#if args}}
+            {{#each args}}
+            <li>{{this}}</li>
+            {{/each}}
+        {{else}}
+            <h1 class="productList--title">No hay productos para mostrar</h1>
+        {{/if}} 
+    </ul>
+    <li>Nombre de la plataforma: {{os}}</li>
+    <li>Version de NodeJS: {{version}}</li>
+    <li>Memoria total reservada: {{rss}}</li>
+    <li>Path de ejecucion{{execPath}}</li>
+    <li>Process ID: {{pid}}</li>
+    <li>Carpeta del proyecto: {{cdw}}</li>
+    <li>Numero de procesadores: {{cpus}}</li>
+</ul>
